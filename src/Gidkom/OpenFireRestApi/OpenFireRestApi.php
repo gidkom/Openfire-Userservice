@@ -190,10 +190,10 @@ class OpenFireRestApi extends RestClient
      * @param   int|false       $subscriptionType   	Subscription (Optional)
      * @return  json|false                     		Json with data or error, or False when something went fully wrong
      */
-    public function addToRoster($username, $jid, $name=false, $subscriptionType=false)
+    public function addToRoster($username, $jid, $nickname=null, $subscriptionType=null)
     {
         $endpoint = '/users/'.$username.'/roster';
-        return $this->doRequest('POST', $endpoint, compact('jid','name','subscriptionType'));
+        return $this->doRequest('POST', $endpoint, compact('jid','nickname','subscriptionType'));
     }
 
 
@@ -219,10 +219,10 @@ class OpenFireRestApi extends RestClient
      * @param   int|false       $subscriptionType   Subscription (Optional)
      * @return  json|false                          Json with data or error, or False when something went fully wrong
      */
-    public function updateRoster($username, $jid, $nickname=false, $subscriptionType=false)
+    public function updateRoster($username, $jid, $nickname=null, $subscriptionType=null)
     {
         $endpoint = '/users/'.$username.'/roster/'.$jid;
-        return $this->doRequest('PUT', $endpoint, $jid, compact('jid','username','subscriptionType'));     
+        return $this->doRequest('PUT', $endpoint, compact('jid', 'subscriptionType', 'nickname'));
     }
 
    
