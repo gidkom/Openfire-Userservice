@@ -16,7 +16,7 @@
         "issues": "https://github.com/gidkom/php-openfire-restapi/issues"
     },
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.2.5 || ^8.0",
         "ext-curl": "*",
         "guzzlehttp/guzzle": "^7.0"
     },
