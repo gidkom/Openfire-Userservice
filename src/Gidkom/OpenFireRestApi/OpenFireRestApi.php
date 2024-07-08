@@ -53,7 +53,7 @@ class OpenFireRestApi extends RestClient
      * @param   string|false    $email      Email   (Optional)
      * @return  json|false                 Json with data or error, or False when something went fully wrong
      */
-    public function addUser($username, $password, $name=false, $email=false)
+    public function addUser($username, $password, $name=null, $email=null)
     {
         $endpoint = '/users'; 
         return $this->doRequest('POST', $endpoint, compact('username', 'password','name','email'));
@@ -82,10 +82,10 @@ class OpenFireRestApi extends RestClient
      * @param   string[]|false  $groups     Groups (Optional)
      * @return  json|false                 Json with data or error, or False when something went fully wrong
      */
-    public function updateUser($username, $password, $name=false, $email=false, $groups=false)
+    public function updateUser($username, $password, $name=null, $email=null)
     {
         $endpoint = '/users/'.$username; 
-        return $this->doRequest('PUT', $endpoint, compact('username', 'password','name','email', 'groups'));
+        return $this->doRequest('PUT', $endpoint, compact('username', 'password','name','email'));
     }
 
 
